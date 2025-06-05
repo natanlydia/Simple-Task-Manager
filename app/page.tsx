@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import { useState } from 'react';
 import Task from './presentation/components/Task';
 import StatCards from './presentation/components/Card';
@@ -28,19 +28,29 @@ export default function Home() {
   };
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <h1>Task Management</h1>
-      <h4>Schedule and organize your daily tasks</h4>
+    <Box sx={{ backgroundColor: '#e3f2fd', minHeight: '100vh', py: 4 }}>
+      <Container
+        maxWidth="md"
+        sx={{
+          backgroundColor: '#fffde7',
+          borderRadius: 2,
+          boxShadow: 3,
+          p: 4,
+        }}
+      >
+        <h1>Task Management</h1>
+        <h4>Schedule and organize your daily tasks</h4>
 
-      <StatCards />
-      <Add onAdd={addTask} />
-      <Task
-        tasks={tasks}
-        onToggle={toggleTask}
-        onDelete={deleteTask}
-        filter={filter}
-        setFilter={setFilter}
-      />
-    </Container>
+        <StatCards />
+        <Add onAdd={addTask} />
+        <Task
+          tasks={tasks}
+          onToggle={toggleTask}
+          onDelete={deleteTask}
+          filter={filter}
+          setFilter={setFilter}
+        />
+      </Container>
+    </Box>
   );
 }

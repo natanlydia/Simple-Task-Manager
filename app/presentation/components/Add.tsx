@@ -1,7 +1,8 @@
-// components/Add.tsx
 'use client';
+
 import { Box, TextField, Button } from '@mui/material';
 import { useState } from 'react';
+import AddIcon from '@mui/icons-material/Add'; // ✅ import icon
 
 export default function Add({ onAdd }: { onAdd: (title: string) => void }) {
   const [title, setTitle] = useState('');
@@ -20,7 +21,11 @@ export default function Add({ onAdd }: { onAdd: (title: string) => void }) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <Button variant="contained" onClick={handleAdd}>
+      <Button
+        variant="contained"
+        onClick={handleAdd}
+        startIcon={<AddIcon />} // ✅ this adds the plus icon
+      >
         Add
       </Button>
     </Box>
