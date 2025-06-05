@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Box } from '@mui/material';
+import { Container, Box, Typography, Paper } from '@mui/material';
 import { useState } from 'react';
 import Task from './presentation/components/Task';
 import StatCards from './presentation/components/Card';
@@ -38,10 +38,29 @@ export default function Home() {
           p: 4,
         }}
       >
-        <h1>Task Management</h1>
-        <h4>Schedule and organize your daily tasks</h4>
+        
+        <Paper
+          elevation={3}
+          sx={{
+            backgroundColor: '#008080',
+            color: 'white',
+            p: 3,
+            borderRadius: 2,
+            mb: 4,
+            textAlign: 'center',
+          }}
+        >
+          <Typography variant="h4">Hello Jone</Typography>
+          <Box sx={{ flexGrow: 1, textAlign: 'center', marginRight: '64px' }}></Box>
+          {/* <Typography variant="h4" gutterBottom>
+            Task Management
+          </Typography> */}
+          <Typography variant="h6">
+            Schedule and organize your daily tasks
+          </Typography>
+        </Paper>
 
-        <StatCards />
+        <StatCards tasks={tasks} />
         <Add onAdd={addTask} />
         <Task
           tasks={tasks}

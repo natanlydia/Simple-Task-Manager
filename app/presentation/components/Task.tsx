@@ -90,7 +90,21 @@ export default function Task({
                 </Typography>
               }
             />
-            <ListItemSecondaryAction>
+            <ListItemSecondaryAction sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Button
+                size="small"
+                variant="contained"
+                sx={{
+                  backgroundColor: task.completed ? '#81c784' : '#fff176',
+                  color: 'black',
+                  minWidth: 'auto',
+                  px: 1.5,
+                  textTransform: 'none',
+                }}
+                disableElevation
+              >
+                {task.completed ? 'Done' : 'Pending'}
+              </Button>
               <IconButton edge="end" onClick={() => onDelete(task.id)}>
                 <DeleteIcon />
               </IconButton>
